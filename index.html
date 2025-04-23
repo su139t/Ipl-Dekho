@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Live TV Channel</title>
+
+	<!-- External CSS Libraries -->
+	<link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css">
+	<link href="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.4/css/halfmoon.min.css" rel="stylesheet">
+
+	<style>
+		.container {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			padding: 15px;
+			width: 100%;
+		}
+
+		header {
+			background-color: #0072c3;
+			text-align: start;
+			padding: 10px;
+			border-bottom: 2px solid #333;
+			width: 100%;
+            height :70px;
+		}
+
+		.logo {
+			max-width: 70px;
+			width: 90%;
+			height: auto;
+		}
+
+		.player-container {
+			width: 95%;
+			max-width: 1200px;
+			margin: 0 auto;
+			box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+			border-radius: 15px;
+			overflow: hidden;
+			background: #000;
+		}
+
+		.player-container iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+			border-radius: 15px;
+		}
+
+		.player-wrapper {
+			position: relative;
+			padding-top: 56.25%;
+			/* 16:9 Aspect Ratio */
+		}
+ /* Glowing Effect for Message */
+        .loading-message {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            box-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00; }
+            100% { box-shadow: 0 0 15px #ffcc00, 0 0 25px #ffcc00, 0 0 35px #ffcc00; }
+        }
+		.live-score {
+			height: 600px;
+			width: 100%;
+			border-radius: 12px;
+			overflow: hidden;
+		}
+
+		.live-score iframe {
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+       .btn-custom {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white !important; /* Force white text */
+            text-decoration: none !important; /* Remove underline if something else adds it */
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+            color: white !important; /* Ensure it stays white on hover */
+        }
+	</style>
+
+	<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+	<script src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
+</head>
+
+<body class="dark-mode with-custom-scrollbars with-custom-css-scrollbars">
+	<header>
+		<img src="https://github.com/su139t/Sheryians-coding-school/blob/main/assets/HindTv-Logo.png?raw=true"
+			alt="HindTV Logo" class="logo">
+	</header>
+
+	<div class="container">
+        <div class="loading-message">Wait For 10-15 Sec For Loading The Stream </div>
+         <div class="player-container">
+			<div class="player-wrapper">
+				<iframe id="contentFrame"
+					sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"
+					frameborder="0" allow="encrypted-media" allowfullscreen scrolling="no"
+					src="https://userv4537.ifrem.net/iframe/frame.php"></iframe>
+			</div>
+		</div>
+        <a class="btn-custom" href="https://robotbagpipe.com/m267hutait?key=18c66af2884cd07c8f85528ee889ef8a">View Perivious Match Highlights</a>
+        <hr style="width:100%; height:5px; color:white;">
+		<div class="live-score">
+			<iframe
+				src="https://widget.jionews.com/jiotv-cricket/prod/v1/index.html?theme=dark&ismobile=true"
+				scrolling="yes"></iframe>
+		</div>
+       
+	</div>
+
+	<!-- Optional Ad Script -->
+	<script type="text/javascript">
+		atOptions = {
+			'key': '162bd7576320731e27e4b59d179f042e',
+			'format': 'iframe',
+			'height': 300,
+			'width': 160,
+			'params': {}
+		};
+	</script>
+	<script type="text/javascript"
+		src="//www.highperformanceformat.com/162bd7576320731e27e4b59d179f042e/invoke.js"></script>
+
+	<!-- Optional Server Switcher Function (not currently used) -->
+	<script>
+		function switchServer(server) {
+			const player = document.getElementById("contentFrame");
+			const server1 = "https://www.livereacting.com/tools/hls-player-embed?url=https%3A%2F%2Fdai.fancode.com%2Fprimary%2F109443_english_hls_5218ta-di%2Findex.m3u8";
+			const server2 = "https://www.livereacting.com/tools/hls-player-embed?url=https%3A%2F%2Fuser65873.hls-video.net%2Fhls%2Ftoken%2Fa3f0c81db39d64f85b6f6a5cfaa1b2ce%2Fstream.m3u8";
+			player.src = server === "server1" ? server1 : server2;
+		}
+	</script>
+</body>
+
+</html>
