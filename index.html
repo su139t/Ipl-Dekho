@@ -26,7 +26,7 @@
 			padding: 10px;
 			border-bottom: 2px solid #333;
 			width: 100%;
-            height :70px;
+			height: 70px;
 		}
 
 		.logo {
@@ -60,25 +60,32 @@
 			padding-top: 56.25%;
 			/* 16:9 Aspect Ratio */
 		}
- /* Glowing Effect for Message */
-        .loading-message {
-            font-size: 18px;
-            font-weight: bold;
-            color: #ffcc00;
-            margin-bottom: 10px;
-            padding: 10px 20px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-            box-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
-            animation: glow 1.5s infinite alternate;
-        }
 
-        @keyframes glow {
-            0% { box-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00; }
-            100% { box-shadow: 0 0 15px #ffcc00, 0 0 25px #ffcc00, 0 0 35px #ffcc00; }
-        }
+		/* Glowing Effect for Message */
+		.loading-message {
+			font-size: 18px;
+			font-weight: bold;
+			color: #ffcc00;
+			margin-bottom: 10px;
+			padding: 10px 20px;
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.1);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			text-align: center;
+			box-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+			animation: glow 1.5s infinite alternate;
+		}
+
+		@keyframes glow {
+			0% {
+				box-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+			}
+
+			100% {
+				box-shadow: 0 0 15px #ffcc00, 0 0 25px #ffcc00, 0 0 35px #ffcc00;
+			}
+		}
+
 		.live-score {
 			height: 600px;
 			width: 100%;
@@ -91,22 +98,26 @@
 			height: 100%;
 			border: none;
 		}
-       .btn-custom {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #007bff;
-            color: white !important; /* Force white text */
-            text-decoration: none !important; /* Remove underline if something else adds it */
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
 
-        .btn-custom:hover {
-            background-color: #0056b3;
-            color: white !important; /* Ensure it stays white on hover */
-        }
+		.btn-custom {
+			display: inline-block;
+			padding: 12px 25px;
+			background-color: #007bff;
+			color: white !important;
+			/* Force white text */
+			text-decoration: none !important;
+			/* Remove underline if something else adds it */
+			font-size: 16px;
+			font-weight: bold;
+			border-radius: 8px;
+			transition: background-color 0.3s ease;
+		}
+
+		.btn-custom:hover {
+			background-color: #0056b3;
+			color: white !important;
+			/* Ensure it stays white on hover */
+		}
 	</style>
 
 	<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -120,8 +131,8 @@
 	</header>
 
 	<div class="container">
-        <div class="loading-message">Wait For 10-15 Sec For Loading The Stream </div>
-         <div class="player-container">
+		<div class="loading-message">Wait For 10-15 Sec For Loading The Stream </div>
+		<div class="player-container">
 			<div class="player-wrapper">
 				<iframe id="contentFrame"
 					sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"
@@ -129,28 +140,29 @@
 					src="https://userv4537.ifrem.net/iframe/frame.php"></iframe>
 			</div>
 		</div>
-        <a class="btn-custom" href="https://robotbagpipe.com/m267hutait?key=18c66af2884cd07c8f85528ee889ef8a">View Perivious Match Highlights</a>
-        <hr style="width:100%; height:5px; color:white;">
+		<!-- Optional Ad Script -->
+		<script type="text/javascript">
+			atOptions = {
+				'key': '162bd7576320731e27e4b59d179f042e',
+				'format': 'iframe',
+				'height': 300,
+				'width': 160,
+				'params': {}
+			};
+		</script>
+		<script type="text/javascript"
+			src="//www.highperformanceformat.com/162bd7576320731e27e4b59d179f042e/invoke.js"></script>
+		<a class="btn-custom" href="https://robotbagpipe.com/m267hutait?key=18c66af2884cd07c8f85528ee889ef8a">View
+			Perivious Match Highlights</a>
+		<hr style="width:100%; height:5px; color:white;">
 		<div class="live-score">
-			<iframe
-				src="https://widget.jionews.com/jiotv-cricket/prod/v1/index.html?theme=dark&ismobile=true"
+			<iframe src="https://widget.jionews.com/jiotv-cricket/prod/v1/index.html?theme=dark&ismobile=true"
 				scrolling="yes"></iframe>
 		</div>
-       
+
 	</div>
 
-	<!-- Optional Ad Script -->
-	<script type="text/javascript">
-		atOptions = {
-			'key': '162bd7576320731e27e4b59d179f042e',
-			'format': 'iframe',
-			'height': 300,
-			'width': 160,
-			'params': {}
-		};
-	</script>
-	<script type="text/javascript"
-		src="//www.highperformanceformat.com/162bd7576320731e27e4b59d179f042e/invoke.js"></script>
+
 
 	<!-- Optional Server Switcher Function (not currently used) -->
 	<script>
