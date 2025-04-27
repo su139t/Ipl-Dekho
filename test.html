@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <iframe sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"
+        src="https://v2.sdsp.xyz/embed/movie/778625" width="640" height="360" scrolling="no" frameborder="0"
+        allowfullscreen></iframe> -->
+    <button name="sandbox">SandBox</button>
+    <iframe name="framez" id="framez" src="https://v2.sdsp.xyz/embed/movie/778625" width="640" height="360"
+        scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+    <script>
+        window.onload = function () {
+            var button = document.getElementsByName("sandbox")[0]
+            var iframe = document.getElementsByName("framez")[0]
+            button.addEventListener('click', sndbx, false);
+
+            function sndbx() {
+                var nibba = document.getElementById("framez").src;
+                if (iframe.sandbox == 'allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation') {
+                    document.getElementById("framez").removeAttribute("sandbox");
+                }
+                frames['framez'].location.href = nibba;
+                iframe.sandbox = 'allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation';
+            }
+        }
+    </script>
+</body>
+
+</html>
