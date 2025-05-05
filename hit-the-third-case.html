@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HIT: The Third Case</title>
+
     <style>
         body {
             margin: 0;
@@ -114,14 +115,8 @@
 
     <div class="container">
         <div class="video-wrapper">
-            <div id="clickLayer" style="
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              z-index: 10;
-              background: transparent;">
-            </div>
-
+            <div id="clickLayer"
+                style="position: absolute; width: 100%; height: 100%; z-index: 10; background: transparent;"></div>
             <iframe src="https://savefiles.com/embed-x1gok88fu0f8.html" allowfullscreen
                 sandbox="allow-forms allow-scripts allow-same-origin allow-top-navigation">
             </iframe>
@@ -140,25 +135,37 @@
             <script type="text/javascript" src="//robotbagpipe.com/d1ba9f12a6fbd75d717d03e384518a34/invoke.js"></script>
         </div>
 
-        <a href="https://savefiles.com/d/x1gok88fu0f8_n" class="download-btn" target="_blank">
+        <a id="downloadBtn" href="https://savefiles.com/d/x1gok88fu0f8_n" class="download-btn" target="_blank">
             📥 Download Now
         </a>
     </div>
 
     <script>
-        // One-time redirect on any user click
-        let redirected = false;
+        let firstAdShown = false;
+        let secondAdShown = false;
 
-        function handleClickRedirect() {
-            if (!redirected) {
-                redirected = true;
+        // Handle first click anywhere (except download button)
+        document.addEventListener('click', function (e) {
+            if (!firstAdShown && e.target.id !== 'downloadBtn') {
+                firstAdShown = true;
                 window.open('https://robotbagpipe.com/m267hutait?key=18c66af2884cd07c8f85528ee889ef8a', '_blank');
-                const clickLayer = document.getElementById('clickLayer');
-                if (clickLayer) clickLayer.remove(); // Remove overlay after click
-            }
-        }
 
-        document.addEventListener('click', handleClickRedirect, { once: true }); // Only once
+                const clickLayer = document.getElementById('clickLayer');
+                if (clickLayer) clickLayer.remove();
+            }
+        }, { once: true });
+
+        // Handle download button click
+        document.getElementById('downloadBtn').addEventListener('click', function (e) {
+            if (!secondAdShown) {
+                e.preventDefault();
+                secondAdShown = true;
+                window.open('https://robotbagpipe.com/m267hutait?key=18c66af2884cd07c8f85528ee889ef8a', '_blank');
+                setTimeout(() => {
+                    window.open(e.target.href, '_blank');
+                }, 700);
+            }
+        });
     </script>
 </body>
 
